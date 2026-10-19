@@ -1,0 +1,46 @@
+﻿@model DeviceManagement.Models.Device
+
+<h2>Edit Device</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group mb-3">
+        <label asp-for="Name">Device Name</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Code">Device Code</label>
+        <input asp-for="Code" class="form-control" />
+        <span asp-validation-for="Code" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="DeviceCategoryId">Category</label>
+        <select asp-for="DeviceCategoryId"
+                asp-items="ViewBag.DeviceCategoryId"
+                class="form-select">
+            <option value="">-- Select Category --</option>
+        </select>
+        <span asp-validation-for="DeviceCategoryId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Status">Status</label>
+        <select asp-for="Status"
+                asp-items="Html.GetEnumSelectList<DeviceManagement.Models.DeviceStatus>()"
+                class="form-select">
+        </select>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="EntryDate">Entry Date</label>
+        <input asp-for="EntryDate" type="date" class="form-control" />
+        <span asp-validation-for="EntryDate" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>
