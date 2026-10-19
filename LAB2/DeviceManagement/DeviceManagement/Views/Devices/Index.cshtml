@@ -51,7 +51,6 @@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th>ID</th>
             <th>Device Name</th>
             <th>Device Code</th>
             <th>Category</th>
@@ -64,7 +63,6 @@
     @foreach (var device in Model)
     {
         <tr>
-            <td>@device.Id</td>
             <td>@device.Name</td>
             <td>@device.Code</td>
             <td>@device.DeviceCategory?.Name</td>
